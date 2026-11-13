@@ -1,0 +1,72 @@
+# =======================================================
+# Entornos Virtuales de Python
+# =======================================================
+.venv/
+.venv_clone/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# =======================================================
+# Archivos de compilación y caché de Python
+# =======================================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.coverage
+htmlcov/
+
+# =======================================================
+# Modelos Neuronales y Pesos (Exceden límite de 100MB de GitHub)
+# (Se descargan bajo demanda vía catalog.py)
+# =======================================================
+models/*
+!models/.gitkeep
+*.onnx
+*.onnx.json
+*.pth
+*.pt
+*.bin
+*.safetensors
+*.tflite
+*.ckpt
+
+# =======================================================
+# Audios y Archivos de Salida Generados
+# =======================================================
+output/*
+!output/.gitkeep
+*.wav
+*.mp3
+*.flac
+*.ogg
+
+# =======================================================
+# Compilación PyInstaller y Distribución
+# =======================================================
+build/
+dist/
+*.spec
+*.manifest
+
+# =======================================================
+# Logs y Archivos Temporales
+# =======================================================
+*.log
+*.tmp
+*.temp
+
+# =======================================================
+# Editores y Sistema Operativo
+# =======================================================
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+Thumbs.db
+desktop.ini
+.DS_Store
