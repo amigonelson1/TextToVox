@@ -3,7 +3,11 @@ from typing import Optional, Dict, List, Union
 import logging
 import numpy as np
 
-from kokoro_onnx import Kokoro
+try:
+    from kokoro_onnx import Kokoro
+except ImportError:
+    Kokoro = None
+
 from src.core.engine.base import BaseTTSEngine, AudioChunkData
 
 logger = logging.getLogger(__name__)
@@ -47,6 +51,11 @@ class KokoroEngine(BaseTTSEngine):
 
     def load_model(self, model_path: Path, config_path: Optional[Path] = None) -> None:
         """Carga el modelo ONNX de Kokoro y su archivo de pesos vocales (.bin)."""
+        if Kokoro is None:
+            raise RuntimeError(
+                "La librería 'kokoro-onnx' no está instalada. "
+                "Por favor instálala ejecutando: pip install kokoro-onnx"
+            )
         model_p = Path(model_path)
         if not model_p.exists():
             raise FileNotFoundError(f"No se encontró el modelo Kokoro: {model_p}")
